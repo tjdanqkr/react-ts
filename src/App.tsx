@@ -1,12 +1,13 @@
 
 import React from 'react';
 import './App.css';
+import Root from './routes';
+
+
 
 const App:React.FunctionComponent=()=> {
   return (
-    <div className="App">
-      <h1>hi</h1>
-    </div>
+    <Root />
   );
 }
 

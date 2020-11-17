@@ -5,6 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f3f3f4;
+  font-family: 'open sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  /* background-color: #2f4050; */
+  font-size: 13px;
+  overflow-x: hidden;
 }
 
 code {
