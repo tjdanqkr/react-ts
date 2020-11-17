@@ -24,7 +24,7 @@
     "plugins": ["react", "@typescript-eslint"],
     "globals": {
       "Atomics": "readonly",
-      "SharedArrayBuffer": "readonly",
+      "SharedArrayBuffer": "readonly"
     },
     "rules": {
       "import/prefer-default-export": 0,
@@ -36,7 +36,7 @@
     "settings": {
       "react": {
         "pragma": "React",
-        "version": "detect",
+        "version": "detect"
       },
       "import/resolver": {
         "node": {
@@ -44,4 +44,4 @@
         }
       }
     }
-  }
+}
