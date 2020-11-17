@@ -50,5 +50,6 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.5",
     "prettier": "^2.1.2"
-  }
+  },
+  "homepage": "https://festive-raman-4466b2.netlify.app/"
 }
