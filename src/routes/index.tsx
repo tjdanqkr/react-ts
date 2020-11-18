@@ -1,7 +1,10 @@
 import * as React from 'react';
-import {BrowserRouter,Switch,Route} from 'react-router-dom';
+import {BrowserRouter,Switch,Route, Redirect} from 'react-router-dom';
 import styled from 'styled-components';
+import Headers from '../components/Header';
 import Login from '../components/Login';
+import Main from '../components/Main';
+import SideBar from '../components/SideBar';
 
 const Container =styled.div`
     /* @media (max-width: 640px) {
@@ -31,14 +34,37 @@ const Container =styled.div`
 
 `
 const MainContainer =styled.div`
-    overflow: hidden;
-    min-width: 1190px;
+    position: relative;
+    width: 1130px;
+    padding: 20px 30px;
+    margin: 0 auto;
+    letter-spacing: -.2px;
+    background-color: white;
+    overflow:hidden;
+    height:100%;
+    
+`;
+
+const Height100 =styled.div`
+    height:100%;
 `;
 const Root: React.FC = () => (
   <BrowserRouter basename="/react-ts">
     <Switch>
       {/* <MainContainer> */}
       <Route path="/" exact component={Login} />
+      {localStorage.getItem('id')===null?
+        <Redirect to="/" />: (
+          <Height100>
+            <Headers />
+            {/* <SideBar /> */}
+            
+            <MainContainer>
+              <Route path="/main" component={Main} />
+            </MainContainer>
+            
+          </Height100>
+      )}
       <Container />
       {/* </MainContainer> */}
     </Switch>

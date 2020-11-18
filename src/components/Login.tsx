@@ -38,7 +38,7 @@ const Login:React.FC = ()=>{
             ...state,
             [name]:value
         })
-        console.log(state)
+        
     }
 
     const onClickLogin = ()=>{
