@@ -60,7 +60,7 @@ const Root: React.FC = () => (
             {/* <SideBar /> */}
             
             <MainContainer>
-              <Route path="/main" component={Main} />
+              <Route path="main" component={Main} />
             </MainContainer>
             
           </Height100>

@@ -17,15 +17,15 @@ const Headers:React.FC =()=>{
     return(
       <HeaderDiv>
         <Navbar color="light" light expand="md">
-          <NavbarBrand href="/home">Home</NavbarBrand>
+          <NavbarBrand href="main">Home</NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
               <NavItem>
-                <NavLink href="/user">user</NavLink>
+                <NavLink href="user">user</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/statistics">
+                <NavLink href="statistics">
                   statistics
                 </NavLink>
               </NavItem>

@@ -43,7 +43,7 @@ const Login:React.FC = ()=>{
 
     const onClickLogin = ()=>{
         localStorage.setItem("id",state.id);
-        window.location.href= "react-ts/main";
+        window.location.href= "main";
     }
     return(
       <LoginForm>
