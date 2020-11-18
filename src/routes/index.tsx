@@ -1,10 +1,12 @@
 import * as React from 'react';
-import {BrowserRouter,Switch,Route, Redirect, Router} from 'react-router-dom';
+import {BrowserRouter,Switch,Route, Redirect} from 'react-router-dom';
 import styled from 'styled-components';
-import Headers from '../components/Header';
+import Footer from '../lib/Footer';
+import Headers from '../lib/Header';
 import Login from '../components/Login';
 import Main from '../components/Main';
-import SideBar from '../components/SideBar';
+import UserList from '../components/UserList';
+import NotFound from '../lib/NotFound';
 
 const Container =styled.div`
     /* @media (max-width: 640px) {
@@ -36,10 +38,10 @@ const Container =styled.div`
 const MainContainer =styled.div`
     position: relative;
     width: 1130px;
-    padding: 20px 30px;
+    padding: 40px 30px;
     margin: 0 auto;
     letter-spacing: -.2px;
-    background-color: white;
+    /* background-color: white; */
     overflow:hidden;
     height:100%;
     
@@ -48,31 +50,27 @@ const MainContainer =styled.div`
 const Height100 =styled.div`
     height:100%;
 `;
+
 const Root: React.FC = () => (
   <BrowserRouter basename="/react-ts">
     <Switch>
       {/* <MainContainer> */}
-      <Route path="/" exact component={Login} />
+      <Route path="/" exact component={()=><Login />} />
       {localStorage.getItem('id')===null?
-        <Redirect to="/" />: (
-          <Height100>
-            <Headers />
-            {/* <SideBar /> */}
-            
-            <MainContainer>
-              
-              <BrowserRouter basename="/react-ts">
-                <Switch>
-                  <Route path="/main" component={Main} />
-                </Switch>
-              </BrowserRouter>
-              
-            </MainContainer>
-            
-          </Height100>
-      )}
-      <Container />
-      {/* </MainContainer> */}
+        <Redirect to="/" />: ''}
+      
+      <Height100>
+        <Headers />
+        <MainContainer>
+          <Switch>
+            <Route path="/main" component={()=><Main />} />
+            <Route path="/user" component={()=><UserList />} />
+            <Route path="*" component={()=><NotFound />} />
+          </Switch>
+        </MainContainer>
+        <Footer />
+      </Height100>
+      
     </Switch>
   </BrowserRouter>
 )
