@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {BrowserRouter,Switch,Route, Redirect} from 'react-router-dom';
+import {BrowserRouter,Switch,Route, Redirect, Router} from 'react-router-dom';
 import styled from 'styled-components';
 import Headers from '../components/Header';
 import Login from '../components/Login';
@@ -60,7 +60,13 @@ const Root: React.FC = () => (
             {/* <SideBar /> */}
             
             <MainContainer>
-              <Route path="main" component={Main} />
+              
+              <BrowserRouter basename="/react-ts">
+                <Switch>
+                  <Route path="/main" component={Main} />
+                </Switch>
+              </BrowserRouter>
+              
             </MainContainer>
             
           </Height100>
