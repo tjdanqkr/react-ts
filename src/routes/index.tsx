@@ -36,9 +36,15 @@ const Container =styled.div`
 
 `
 const MainContainer =styled.div`
+    @media (max-width:768px){
+        padding: 20px;
+    }
+    @media (min-width:769px){
+        padding: 40px 30px;
+    }
     position: relative;
     width: 1130px;
-    padding: 40px 30px;
+
     margin: 0 auto;
     letter-spacing: -.2px;
     /* background-color: white; */
