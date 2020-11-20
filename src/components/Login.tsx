@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 
 
 import {  Button, Col,  FormGroup, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
@@ -30,7 +31,7 @@ const Login:React.FC = ()=>{
         id:'',
         pw:''
     })
-    
+    const [redirect,setRedirect] = useState(false);
     const onChangeHander =(e:React.ChangeEvent<HTMLInputElement>)=>{
         const {value,name} = e.target;
         
@@ -42,9 +43,12 @@ const Login:React.FC = ()=>{
     }
 
     const onClickLogin = ()=>{
+        
         localStorage.setItem("id",state.id);
-        window.location.href= "main";
+        setRedirect(true)
     }
+
+
     return(
       <LoginForm>
         <Row>
@@ -71,7 +75,7 @@ const Login:React.FC = ()=>{
           </Col>
         </Row>
           
-        
+        {redirect?<Redirect to="/main" />:''}    
         
         
         

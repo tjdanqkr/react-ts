@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {BrowserRouter,Switch,Route, Redirect} from 'react-router-dom';
+import {BrowserRouter,Switch,Route, Redirect, HashRouter} from 'react-router-dom';
 import styled from 'styled-components';
 import Footer from '../lib/Footer';
 import Headers from '../lib/Header';
@@ -52,25 +52,23 @@ const Height100 =styled.div`
 `;
 
 const Root: React.FC = () => (
-  <BrowserRouter basename="/react-ts">
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
     <Switch>
       {/* <MainContainer> */}
       <Route path="/" exact component={()=><Login />} />
       {localStorage.getItem('id')===null?
         <Redirect to="/" />: ''}
-      
       <Height100>
         <Headers />
         <MainContainer>
           <Switch>
             <Route path="/main" component={()=><Main />} />
             <Route path="/user" component={()=><UserList />} />
-            <Route path="*" component={()=><NotFound />} />
+            <Route path="/*" component={()=><NotFound />} />
           </Switch>
         </MainContainer>
         <Footer />
-      </Height100>
-      
+      </Height100>     
     </Switch>
   </BrowserRouter>
 )
